@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
-Name: runningbox-api-python
+Name: runningbox-api-python-package
 Version: 0.0.0
 Summary: Running box API Python
 Home-page: https://gitlab.com/softbutterfly/runningbox-api---python
 Author: SoftButterfly Development Team
 Author-email: SoftButterfly Development Team <dev@softbutterfly.io>
 License: UNKNOWN
-Download-URL: https://gitlab.com/softbutterfly/runningbox-api---python/-/archive/0.0.0/runningbox-api-python-0.0.0.tar.gz
+Download-URL: https://gitlab.com/softbutterfly/runningbox-api---python/-/archive/0.0.0/runningbox-api-python-package-0.0.0.tar.gz
 Description: # Example Package
         
         This is a simple example package. You can use

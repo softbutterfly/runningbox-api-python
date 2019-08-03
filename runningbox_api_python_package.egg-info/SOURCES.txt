@@ -15,8 +15,8 @@ runningbox_api/resources/base.py
 runningbox_api/resources/order.py
 runningbox_api/resources/rate.py
 runningbox_api/resources/tracking.py
-runningbox_api_python.egg-info/PKG-INFO
-runningbox_api_python.egg-info/SOURCES.txt
-runningbox_api_python.egg-info/dependency_links.txt
-runningbox_api_python.egg-info/requires.txt
-runningbox_api_python.egg-info/top_level.txt
+runningbox_api_python_package.egg-info/PKG-INFO
+runningbox_api_python_package.egg-info/SOURCES.txt
+runningbox_api_python_package.egg-info/dependency_links.txt
+runningbox_api_python_package.egg-info/requires.txt
+runningbox_api_python_package.egg-info/top_level.txt
