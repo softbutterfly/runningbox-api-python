@@ -4,12 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+jupyterlab = "*"
+pylint = "*"
+autopep8 = "*"
+twine = "*"
+python-dotenv = "*"
 
 [packages]
 requests = "*"
-jupyterlab = "*"
-twine-dev = "*"
-twine = "*"
 
 [requires]
 python_version = "3.7"

@@ -10,5 +10,5 @@ class ServerError(Exception):
     pass
 
 
-class SignatureVerificationError(Exception):
+class NotAllowed(Exception):
     pass

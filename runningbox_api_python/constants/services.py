@@ -1,0 +1,4 @@
+class Service:
+    EXPRESS = "EXPRESS"
+    PRIORITY = "PRIORITY"
+    NEXTFLY = "NEXTFLY"

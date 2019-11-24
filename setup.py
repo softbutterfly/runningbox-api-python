@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# pylint: disable=W0122
 import os
 from setuptools import find_packages, setup
 
 package_name = 'runningbox-api-python'
 package_path = os.path.abspath(os.path.dirname(__file__))
-repositorty_url = 'https://gitlab.com/softbutterfly/runningbox-api---python'
+repositorty_url = 'https://gitlab.com/softbutterfly/runningbox-api-python'
 long_description_file_path = os.path.join(package_path, 'README.md')
 long_description = ''
 
@@ -15,8 +16,15 @@ try:
 except IOError:
     pass
 
-exec(  # pylint: disable=W0122
-    open(os.path.join(package_path, 'runningbox_api', 'version.py')).read())
+exec(
+    open(
+        os.path.join(
+            package_path,
+            'runningbox_api_python',
+            'version.py'
+        )
+    ).read()
+)
 VERSION = locals().get('VERSION', ['0', '0', '0'])
 __version__ = '.'.join(VERSION)
 
@@ -32,7 +40,7 @@ setup(
     ),
     include_package_data=True,
     version=__version__,
-    description="""Running box API Python""",
+    description="""Running Box API Python""",
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='SoftButterfly Development Team',

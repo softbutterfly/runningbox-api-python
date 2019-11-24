@@ -1,3 +1,4 @@
+from .services import Service
 from .stages import Stage
 from .urls import URL
 from .status_codes import HttpStatusCode
