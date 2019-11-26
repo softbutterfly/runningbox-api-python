@@ -12,9 +12,9 @@ from runningbox_api_python.constants import Service
 
 class OrdersTest(unittest.TestCase):
     order_data_for_estimate = {  # pylint: disable=E1101
-        'ubigeo': '150131',
-        'servicio': 'EXPRESS',
-        'peso': '43.00'
+        "ubigeo": "150131",
+        "servicio": "EXPRESS",
+        "peso": "43.00"
     }
     order_data_for_create = {
         # Cliente de envio
@@ -80,13 +80,13 @@ class OrdersTest(unittest.TestCase):
         self.version = __version__
 
         self.api_key = os.environ.get(
-            'API_KEY',
-            'sample_api_key'
+            "API_KEY",
+            "sample_api_key"
         )
 
         self.broker_tax_id = os.environ.get(
-            'BROKER_TAX_ID',
-            'sample_api_secret'
+            "BROKER_TAX_ID",
+            "sample_api_secret"
         )
 
         self.request_number = f"CUSTOMER-{uuid4().hex}"
@@ -94,18 +94,18 @@ class OrdersTest(unittest.TestCase):
         self.client = Client(self.api_key, self.broker_tax_id)
 
     def test_order_attribute_type(self):
-        order = getattr(self.client, 'order', None)
+        order = getattr(self.client, "order", None)
 
         assert isinstance(order, Order)
 
     def test_order_client(self):
-        order = getattr(self.client, 'order', None)
+        order = getattr(self.client, "order", None)
         assert order.client == self.client
 
     def test_order_estimate_status_code(self):
         response = self.client.order.estimate(  # pylint: disable=E1101
             self.order_data_for_estimate)
-        assert response['status'] == 200
+        assert response["status"] == 200
 
     def test_order_create_status_code(self):
         self.order_data_for_create.update({
@@ -113,18 +113,18 @@ class OrdersTest(unittest.TestCase):
         })
         response = self.client.order.create(  # pylint: disable=E1101
             self.order_data_for_create)
-        assert response['status'] == 200
-        self.order_number = response['data']['NRO_ORDEN']
+        assert response["status"] == 200
+        self.order_number = response["data"]["NRO_ORDEN"]
 
     def test_order_tracking_status_code_with_request_number(self):
         response = self.client.order.tracking(  # pylint: disable=E1101
             self.request_number)
-        assert response['status'] == 200
+        assert response["status"] == 200
 
     def test_order_tracking_status_code_with_order_number(self):
         response = self.client.order.tracking(  # pylint: disable=E1101
             self.order_number)
-        assert response['status'] == 200
+        assert response["status"] == 200
 
     def test_order_trackin_compare_order_number_and_request_number(self):
         request_number_response = self.client.order.tracking(  # pylint: disable=E1101
@@ -136,5 +136,5 @@ class OrdersTest(unittest.TestCase):
         assert request_number_response == order_number_response
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
