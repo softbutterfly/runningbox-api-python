@@ -3,7 +3,7 @@ name = "runningbox-api-python"
 version = "1.0.1"
 description = ""
 authors = ["SoftButterfly Development Team <dev@softbutterfly.io>"]
-license = "MIT"
+license = "BSD 3-Clause License"
 
 [tool.poetry.dependencies]
 python = "^3.8"
