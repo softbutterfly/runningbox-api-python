@@ -4,8 +4,8 @@
 
 [![Build Status](https://travis-ci.org/softbutterfly/runningbox-api-python.svg?branch=master)](https://travis-ci.org/softbutterfly/runningbox-api-python)
 [![codecov](https://codecov.io/gh/softbutterfly/runningbox-api-python/branch/master/graph/badge.svg)](https://codecov.io/gh/softbutterfly/runningbox-api-python)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1787644ed8524433b9466f74d24b44d2)](https://www.codacy.com/gh/softbutterfly/runningbox-api-python?utm_source=github.com&utm_medium=referral&utm_content=softbutterfly/runningbox-api-python&utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1787644ed8524433b9466f74d24b44d2)](https://www.codacy.com/gh/softbutterfly/runningbox-api-python?utm_source=github.com&utm_medium=referral&utm_content=softbutterfly/runningbox-api-python&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/710bffdc3057465aa7368ebd182b11ed)](https://www.codacy.com/gh/softbutterfly/runningbox-api-python?utm_source=github.com&utm_medium=referral&utm_content=softbutterfly/runningbox-api-python&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/710bffdc3057465aa7368ebd182b11ed)](https://www.codacy.com/gh/softbutterfly/runningbox-api-python?utm_source=github.com&utm_medium=referral&utm_content=softbutterfly/runningbox-api-python&utm_campaign=Badge_Coverage)
 
 [![Stars](https://img.shields.io/github/stars/softbutterfly/runningbox-api-python?logo=github)](https://github.com/softbutterfly/runningbox-api-python/)
 [![License](https://img.shields.io/pypi/l/runningbox-api-python.svg?color=blue)](https://github.com/softbutterfly/runningbox-api-python/blob/master/LICENSE.txt)
