@@ -2,19 +2,20 @@ import os
 import unittest
 from uuid import uuid4
 
+import pytest
 from dotenv import load_dotenv
 
 from runningbox_api_python import __version__
 from runningbox_api_python.client import Client
-from runningbox_api_python.resources import Order
 from runningbox_api_python.constants import Service
+from runningbox_api_python.resources import Order
 
 
 class OrdersTest(unittest.TestCase):
-    order_data_for_estimate = {  # pylint: disable=E1101
+    order_data_for_estimate = {
         "ubigeo": "150131",
         "servicio": "EXPRESS",
-        "peso": "43.00"
+        "peso": "43.00",
     }
     order_data_for_create = {
         # Cliente de envio
@@ -28,12 +29,10 @@ class OrdersTest(unittest.TestCase):
         "dd": "",
         "importe_cod": "0.00",
         "servicio": Service.EXPRESS,
-
         # Cliente final
         "cliente_final": "Jhon Doe",
         "tipo_doc": "1",
         "numero_doc": "123456789",
-
         # "documento1": "",
         # "nrodoc1":"",
         # "documento2":"",
@@ -42,7 +41,6 @@ class OrdersTest(unittest.TestCase):
         # "nrodoc3":"",
         # "documento4":"",
         # "nrodoc4":"",
-
         # Entrega
         "ubigeo": "150101",
         "departamento": "Lima",
@@ -53,7 +51,6 @@ class OrdersTest(unittest.TestCase):
         "mail": "jhon.doe@example.com",
         "telefono": "999999999",
         "contacto": "Margery Doe (999999998)",
-
         # Recojo
         "nombre_resp_almacen": "Donnald Doe (999999997)",
         "dni_resp_almacen": "123456788",
@@ -66,12 +63,12 @@ class OrdersTest(unittest.TestCase):
         "notas": "",
         "productos": [
             {
-                "nombre": "delirium - bvd hombre addiction - talla : xl - color : azul y negro",
+                "nombre": "delirium/bvd hombre addiction/talla:xl/color:azul y negro",
                 "descripcion": "delirium-bvd-hombre-addiction-1-018171",
                 "sku": "dbh-add-blrj-xl",
-                "peso": 10
+                "peso": 10,
             }
-        ]
+        ],
     }
 
     def __init__(self, *args, **kwargs):
@@ -79,59 +76,48 @@ class OrdersTest(unittest.TestCase):
         load_dotenv()
         self.version = __version__
 
-        self.api_key = os.environ.get(
-            "API_KEY",
-            "sample_api_key"
-        )
+        self.api_key = os.environ.get("API_KEY", "sample_api_key")
+        self.broker_tax_id = os.environ.get("BROKER_TAX_ID", "sample_api_secret")
 
-        self.broker_tax_id = os.environ.get(
-            "BROKER_TAX_ID",
-            "sample_api_secret"
-        )
-
-        self.request_number = f"CUSTOMER-{uuid4().hex}"
+        self.request_number = "CUSTOMER-{0}".format(uuid4().hex)
         self.order_number = None
         self.client = Client(self.api_key, self.broker_tax_id)
+        self.order = Order(client=self.client)
 
     def test_order_attribute_type(self):
         order = getattr(self.client, "order", None)
-
         assert isinstance(order, Order)
 
     def test_order_client(self):
         order = getattr(self.client, "order", None)
         assert order.client == self.client
 
+    @pytest.mark.vcr()
     def test_order_estimate_status_code(self):
-        response = self.client.order.estimate(  # pylint: disable=E1101
-            self.order_data_for_estimate)
+        response = self.order.estimate(self.order_data_for_estimate)
         assert response["status"] == 200
 
+    @pytest.mark.vcr()
     def test_order_create_status_code(self):
-        self.order_data_for_create.update({
-            "nro_pedido": self.request_number
-        })
-        response = self.client.order.create(  # pylint: disable=E1101
-            self.order_data_for_create)
+        self.order_data_for_create.update({"nro_pedido": self.request_number})
+        response = self.order.create(self.order_data_for_create)
         assert response["status"] == 200
         self.order_number = response["data"]["NRO_ORDEN"]
 
+    @pytest.mark.vcr()
     def test_order_tracking_status_code_with_request_number(self):
-        response = self.client.order.tracking(  # pylint: disable=E1101
-            self.request_number)
+        response = self.order.tracking(self.request_number)
         assert response["status"] == 200
 
+    @pytest.mark.vcr()
     def test_order_tracking_status_code_with_order_number(self):
-        response = self.client.order.tracking(  # pylint: disable=E1101
-            self.order_number)
+        response = self.order.tracking(self.order_number)
         assert response["status"] == 200
 
+    @pytest.mark.vcr()
     def test_order_trackin_compare_order_number_and_request_number(self):
-        request_number_response = self.client.order.tracking(  # pylint: disable=E1101
-            self.request_number)
-
-        order_number_response = self.client.order.tracking(  # pylint: disable=E1101
-            self.order_number)
+        request_number_response = self.order.tracking(self.request_number)
+        order_number_response = self.order.tracking(self.order_number)
 
         assert request_number_response == order_number_response
 
