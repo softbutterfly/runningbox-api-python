@@ -6,6 +6,7 @@
 [![codecov](https://codecov.io/gh/softbutterfly/runningbox-api-python/branch/master/graph/badge.svg)](https://codecov.io/gh/softbutterfly/runningbox-api-python)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/710bffdc3057465aa7368ebd182b11ed)](https://www.codacy.com/gh/softbutterfly/runningbox-api-python?utm_source=github.com&utm_medium=referral&utm_content=softbutterfly/runningbox-api-python&utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/710bffdc3057465aa7368ebd182b11ed)](https://www.codacy.com/gh/softbutterfly/runningbox-api-python?utm_source=github.com&utm_medium=referral&utm_content=softbutterfly/runningbox-api-python&utm_campaign=Badge_Coverage)
+[![Requirements Status](https://requires.io/github/softbutterfly/runningbox-api-python/requirements.svg?branch=master)](https://requires.io/github/softbutterfly/runningbox-api-python/requirements/?branch=master)
 
 [![Stars](https://img.shields.io/github/stars/softbutterfly/runningbox-api-python?logo=github)](https://github.com/softbutterfly/runningbox-api-python/)
 [![License](https://img.shields.io/pypi/l/runningbox-api-python.svg?color=blue)](https://github.com/softbutterfly/runningbox-api-python/blob/master/LICENSE.txt)
