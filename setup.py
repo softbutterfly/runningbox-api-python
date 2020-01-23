@@ -20,7 +20,7 @@ except IOError:
 
 setup(
     name=package_name,
-    packages=find_packages(exclude=[".*", "docs", "scripts", "tests*",]),
+    packages=find_packages(exclude=[".*", "docs", "scripts", "tests*"]),
     include_package_data=True,
     version=__import__("runningbox_api_python").__version__,
     description="""Running Box API Python""",
@@ -47,6 +47,6 @@ setup(
         "version": __import__("runningbox_api_python").__version__,
         "package": package_name,
     },
-    requires=["requests",],
-    install_requires=["requests",],
+    requires=["requests"],
+    install_requires=["requests"],
 )
